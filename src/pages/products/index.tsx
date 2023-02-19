@@ -4,14 +4,14 @@ import { fetcher, QueryKeys } from "../../queryClient"
 import { Product } from "../../types"
 
 const ProductList = () => {
-  const { data } = useQuery<Product[]>(QueryKeys.PRODUCTS, () => 
+  const { data } = useQuery<Product[]>(QueryKeys.PRODUCTS, () =>
     fetcher({
       method: 'GET',
       path: '/products'
     })
   )
 
-  return(
+  return (
     <>
       <ul className="products">
         {data?.map(product => (

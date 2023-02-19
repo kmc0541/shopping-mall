@@ -12,8 +12,8 @@ export const routes = [
     path: '/',
     element: <GlobalLayout />,
     children: [
-      { path: '/', element: <Index />, index: true},
-      { path: '/products', element: <ProductsIndex />, index: true},
+      { path: '/', element: <Index />, index: true },
+      { path: '/products', element: <ProductsIndex />, index: true },
       { path: '/products/:id', element: <ProductsId />, },
     ]
   }
