@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom/client'
 import App from './app'
 import { BrowserRouter, useRoutes } from 'react-router-dom';
 import { worker } from './mocks/browser';
+import { RecoilRoot } from 'recoil';
 
 if (import.meta.env.DEV) {
   worker.start()
 }
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
+  <React.StrictMode>
+    <RecoilRoot>
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
+    </RecoilRoot>
+  </React.StrictMode>
 )
