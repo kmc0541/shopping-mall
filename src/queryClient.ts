@@ -1,3 +1,6 @@
+import { request } from 'graphql-request';
+import { RequestDocument } from 'graphql-request/dist/types';
+import { graphql } from 'msw';
 import {
   useQuery,
   useMutation,
@@ -28,9 +31,9 @@ export const getClient = (() => {
   new QueryClient()
 })()
 
-const BASE_URL = 'https://fakestoreapi.com'
+const BASE_URL = '/'
 
-export const fetcher = async ({
+export const restfetcher = async ({
   method,
   path,
   body,
@@ -64,6 +67,9 @@ export const fetcher = async ({
     console.error(err);
   }
 }
+
+export const graphqlFetcher = (query: RequestDocument, variables = {}) => request(BASE_URL, query, variables)
+
 export const QueryKeys = {
   PRODUCTS: 'PRODUCTS',
 }
